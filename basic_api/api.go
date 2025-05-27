@@ -22,6 +22,8 @@ func main(){
 
 	buff, err := io.ReadAll(resp.Body)
 
+	// map with string as key and interface as val
+	// value is string because JSON keys MUST be strings.
 	var data map[string]interface{}
 	_ = json.Unmarshal(buff, &data)
 
