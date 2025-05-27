@@ -15,7 +15,8 @@ import (
 // Also to hold onto DNS resolution to same server
 // Very useful when we are making a lot of requests to the same server.
 var httpClient = &http.Client{
-	// We define timeout in the context.
+	// We define timeout in the context. 
+    // Why define in context and not here? that is important to know!!
 	// Timeout: 5 * time.Second,
 	Transport: &http.Transport{
 		MaxIdleConns:        100,
