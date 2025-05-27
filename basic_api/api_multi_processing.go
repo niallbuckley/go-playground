@@ -74,7 +74,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	resultCh := make(chan apiResult, 1)
+	resultCh := make(chan apiResult, len(urls))
     for _, url := range urls {
         go makeAPIRequest(ctx, url, resultCh)
     }
@@ -92,6 +92,6 @@ func main() {
             return
         }
 
-        fmt.Println("userId:", data["userId"])
+        fmt.Println("userId:", data["id"])
     }
 }
